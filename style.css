@@ -1,0 +1,381 @@
+/* Botão hambúrguer moderno */
+.hamburger-btn {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1000;
+  background: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  box-shadow: 0 4px 12px 0 rgba(44, 122, 123, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.hamburger-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px 0 rgba(44, 122, 123, 0.20);
+}
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.hamburger-line {
+  width: 1.5rem;
+  height: 0.15rem;
+  background: #2C7A7B;
+  border-radius: 0.1rem;
+  transition: all 0.3s ease;
+}
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(0.35rem, 0.35rem);
+}
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+}
+
+/* Overlay para fechar sidebar */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.sidebar-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Minimal glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 1.25rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px 0 rgba(44, 122, 123, 0.06);
+}
+
+/* Minimal card style com tons neutros e detalhes suaves */
+.minimal-card {
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 1px 4px 0 rgba(44, 122, 123, 0.06);
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+  background: #f9fafb;
+}
+.minimal-card:hover {
+  box-shadow: 0 4px 16px 0 rgba(44, 122, 123, 0.10);
+  transform: translateY(-2px) scale(1.01);
+  border-color: #2C7A7B;
+}
+
+/* Sidebar minimal style com animação */
+.sidebar-minimal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16rem;
+  background: #23272f;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 4rem;
+  box-shadow: 2px 0 12px 0 rgba(44, 122, 123, 0.04);
+  z-index: 950;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+.sidebar-minimal.open {
+  transform: translateX(0);
+}
+.sidebar-minimal h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2C7A7B;
+  margin-bottom: 2.7rem;
+  margin-left: 1.2rem;
+  letter-spacing: -1px;
+}
+.sidebar-minimal nav button {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 0 0.75rem 1.2rem;
+  border-radius: 0.75rem;
+  transition: background 0.15s, color 0.15s;
+}
+.sidebar-minimal nav button:hover {
+  background: #2C7A7B;
+  color: #fff;
+}
+
+/* Tabela estilo Mercado Pago */
+.clean-table {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 8px 0 rgba(44, 122, 123, 0.06);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-bottom: 2.5px solid #e5e7eb; /* Borda fina inferior para simular tabela */
+}
+.clean-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+}
+.clean-table th {
+  background: #f4f6fa;
+  color: #23272f;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1.5px solid #e5e7eb;
+}
+.clean-table td {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #f1f2f6;
+  font-size: 0.98rem;
+  color: #23272f;
+  background: #fff;
+  transition: background 0.18s;
+}
+.clean-table tr:last-child td {
+  border-bottom: none;
+}
+.clean-table tbody tr:hover td {
+  background: #f4f6fa;
+}
+.clean-table td:last-child, .clean-table th:last-child {
+  border-right: none;
+}
+
+/* Custom select dropdown (modern infinite border style) */
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #fff url('data:image/svg+xml;utf8,<svg fill="%232C7A7B" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"/></svg>') no-repeat right 0.75rem center/1.2em;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 0.9rem;
+  padding: 0.5rem 2.2rem 0.5rem 1rem;
+  font-size: 1rem;
+  color: #23272f;
+  font-family: 'Inter', sans-serif;
+  transition: border 0.18s, box-shadow 0.18s;
+  box-shadow: 0 1px 8px 0 rgba(44, 122, 123, 0.08);
+}
+.custom-select:focus {
+  border: 1.5px solid #2C7A7B;
+  outline: none;
+  box-shadow: 0 0 0 2px #2C7A7B22;
+}
+.custom-select option {
+  background: #fff;
+  color: #23272f;
+  border-radius: 0.7rem;
+  margin: 0.2rem 0;
+  padding: 0.5rem 1rem;
+}
+
+/* Remove azul padrão do highlight */
+.custom-select option:checked, .custom-select option:focus, .custom-select option:hover {
+  background: rgba(44,122,123,0.08) !important;
+  color: #2C7A7B !important;
+}
+
+/* Simula borda infinita no dropdown (Webkit only) */
+.custom-select::-webkit-scrollbar {
+  width: 8px;
+  background: #f4f6fa;
+}
+.custom-select::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+/* Custom modern date input */
+.custom-date {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #23272f;
+  font-family: 'Inter', sans-serif;
+  transition: border 0.18s, box-shadow 0.18s;
+  box-shadow: 0 1px 4px 0 rgba(44, 122, 123, 0.04);
+}
+.custom-date:focus {
+  border: 1.5px solid #2C7A7B;
+  outline: none;
+  box-shadow: 0 0 0 2px #2C7A7B22;
+}
+/* Remove default calendar icon in Chrome */
+.custom-date::-webkit-calendar-picker-indicator {
+  filter: invert(38%) sepia(24%) saturate(600%) hue-rotate(135deg);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* Barra de pesquisa estilo iPhone moderno */
+.search-iphone {
+  width: 100%;
+  padding: 0.85rem 1.2rem 0.85rem 2.8rem;
+  border-radius: 2rem;
+  border: none;
+  background: #fff;
+  box-shadow: 0 6px 32px 0 rgba(44,122,123,0.13), 0 1.5px 8px 0 rgba(44,122,123,0.08);
+  font-size: 1.08rem;
+  color: #23272f;
+  font-family: 'Inter', sans-serif;
+  transition: box-shadow 0.22s, background 0.22s;
+  outline: none;
+  border: 1.5px solid transparent;
+}
+.search-iphone:focus {
+  background: #fff;
+  box-shadow: 0 8px 40px 0 rgba(44,122,123,0.18);
+  border: 1.5px solid #2C7A7B;
+}
+.search-iphone::placeholder {
+  color: #a0aec0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.search-iphone-icon {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #2C7A7B;
+  opacity: 0.8;
+  transition: color 0.2s;
+}
+
+/* Estilos para tela de login aprimorada */
+.login-container {
+  background: linear-gradient(135deg, #2C7A7B 0%, #319795 50%, #2D3748 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-background-pattern::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.login-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.login-input-focus {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-input-focus:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(44, 122, 123, 0.25);
+}
+
+.login-button-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-button-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(44, 122, 123, 0.35);
+}
+
+.logo-container {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+/* Animações suaves para elementos da tela de login */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.social-button {
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.social-button:hover {
+  border-color: #2C7A7B;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44, 122, 123, 0.15);
+}
+
+/* Efeito de brilho no botão principal */
+.login-main-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.login-main-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.login-main-button:hover::before {
+  left: 100%;
+}
