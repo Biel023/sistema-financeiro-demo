@@ -119,6 +119,22 @@ const Icons = {
     </svg>
   ),
   
+  // Ícone de lápis moderno para editar
+  Edit: ({ size = 16, color = "currentColor" }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63L18.37 3.29C17.98 2.9 17.35 2.9 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04Z" 
+            fill={color}/>
+    </svg>
+  ),
+  
+  // Ícone de lixeira moderno para excluir
+  Delete: ({ size = 16, color = "currentColor" }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" 
+            fill={color}/>
+    </svg>
+  ),
+  
   Logout: ({ size = 20, color = "currentColor" }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z" fill={color}/>
@@ -1900,13 +1916,13 @@ const App = () => {
               </p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 border border-gray-200 hover:border-primary-teal/50 transition-all hover:shadow-lg group">
-              <div className="w-14 h-14 bg-accent-gold/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent-gold/20 transition-colors">
+            <div className={`bg-white rounded-xl p-8 border border-gray-200 hover:border-accent-gold/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl group ${isVisible['features'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{transitionDelay: '0.6s'}}>
+              <div className="w-14 h-14 bg-accent-gold/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent-gold/20 transition-all duration-300 transform group-hover:scale-110">
                 <svg className="w-7 h-7 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Segurança Total</h3>
+              <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-accent-gold transition-colors duration-300">Segurança Total</h3>
               <p className="text-gray-600 leading-relaxed">
                 Seus dados protegidos com criptografia avançada, backups automáticos e controle de acesso.
               </p>
@@ -2707,55 +2723,138 @@ const App = () => {
           ></div>
 
           <div className="flex">
-            {/* Sidebar */}
-            <aside className={`sidebar-minimal ${sidebarOpen ? 'open' : ''}`}>
-              {/* Campo de pesquisa - fixo no topo */}
-              <div className="w-full px-4 mb-6 flex-shrink-0">
-                <div className="relative">
+            {/* Sidebar Ultra-Moderno 2025 */}
+            <aside className={`sidebar-modern-2025 ${sidebarOpen ? 'open' : ''}`}>
+              {/* Header Moderno com Gradiente */}
+              <div className="sidebar-header-modern">
+                <div className="brand-container">
+                  <div className="brand-icon">
+                    <div className="logo-nuxter">
+                      <img src="Images/LogoNuxter.jpg" alt="Nuxter Logo" />
+                    </div>
+                  </div>
+                  <div className="brand-text">
+                    <h1 className="brand-title">Nuxter</h1>
+                    <p className="brand-subtitle">Financial Platform</p>
+                  </div>
+                </div>
+                
+                {/* Toggle Button Moderno */}
+                <button 
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+                  className="toggle-modern"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+
+              {/* Search Modern com Glassmorphism */}
+              <div className="search-modern-container">
+                <div className="search-modern-wrapper">
+                  <div className="search-icon-modern">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"/>
+                      <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                   <input
                     type="text"
                     value={sidebarSearch}
                     onChange={e => setSidebarSearch(e.target.value)}
-                    placeholder="Pesquisar..."
-                    className="search-iphone"
+                    placeholder="Pesquisar módulos..."
+                    className="search-input-modern"
                   />
-                  <span className="search-iphone-icon">
-                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="#2C7A7B" strokeWidth="2"/><path stroke="#2C7A7B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35"/></svg>
-                  </span>
                 </div>
               </div>
-              
-              {/* Menu de navegação - área rolável */}
-              <nav className="space-y-2 w-full px-4 overflow-y-auto custom-scrollbar" style={{flex: '1 1 auto'}}>
-                {filteredSidebarOptions.length === 0 ? (
-                  <span className="block text-gray-400 py-2">Nenhuma opção encontrada</span>
-                ) : (
-                  filteredSidebarOptions.map((opt, idx) => (
+
+              {/* Navigation Menu Ultra-Moderno */}
+              <nav className="nav-modern-container">
+                <div className="nav-section">
+                  <span className="nav-section-title">Principal</span>
+                  {filteredSidebarOptions.slice(0, 4).map((opt, idx) => (
                     <button 
                       key={idx} 
                       onClick={() => {
                         opt.action();
                         setSidebarOpen(false);
                       }} 
-                      className="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center gap-3"
+                      className="nav-item-modern"
                     >
-                      {opt.icon && <span className="flex-shrink-0">{opt.icon}</span>}
-                      <span>{opt.label}</span>
+                      <div className="nav-icon-modern">
+                        {opt.icon}
+                      </div>
+                      <span className="nav-text-modern">{opt.label}</span>
+                      <div className="nav-indicator"></div>
                     </button>
-                  ))
+                  ))}
+                </div>
+
+                {filteredSidebarOptions.length > 4 && (
+                  <div className="nav-section">
+                    <span className="nav-section-title">Ferramentas</span>
+                    {filteredSidebarOptions.slice(4).map((opt, idx) => (
+                      <button 
+                        key={idx + 4} 
+                        onClick={() => {
+                          opt.action();
+                          setSidebarOpen(false);
+                        }} 
+                        className="nav-item-modern"
+                      >
+                        <div className="nav-icon-modern">
+                          {opt.icon}
+                        </div>
+                        <span className="nav-text-modern">{opt.label}</span>
+                        <div className="nav-indicator"></div>
+                      </button>
+                    ))}
+                  </div>
                 )}
               </nav>
 
-              {/* Botão Sair fixo no final - sempre visível */}
-              <div className="border-t border-gray-200 pt-4 pb-6 px-4 w-full flex-shrink-0" style={{marginTop: 'auto'}}>
+              {/* Footer Moderno */}
+              <div className="sidebar-footer-modern">
+                {/* Dark Mode Toggle Avançado */}
+                <div className="dark-mode-modern">
+                  <div className="theme-icon">
+                    {darkMode ? (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" strokeWidth="2"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                    ) : (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" strokeWidth="2"/>
+                      </svg>
+                    )}
+                  </div>
+                  <span className="theme-text">{darkMode ? 'Modo Claro' : 'Modo Escuro'}</span>
+                  <button 
+                    onClick={toggleDarkMode}
+                    className="theme-toggle-modern"
+                  >
+                    <div className="toggle-slider-modern"></div>
+                  </button>
+                </div>
+
+                {/* Logout Button Moderno */}
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left px-4 py-2 rounded-lg hover:bg-red-50 transition-colors flex items-center gap-3 text-gray-400 hover:text-red-600"
+                  className="logout-modern"
                 >
-                  <span className="flex-shrink-0">
-                    <Icons.Logout size={16} />
-                  </span>
-                  <span className="text-sm">Sair</span>
+                  <div className="logout-icon">
+                    <Icons.Logout size={18} />
+                  </div>
+                  <span className="logout-text">Sair</span>
                 </button>
               </div>
             </aside>
@@ -4899,12 +4998,10 @@ const App = () => {
                                 <td className="py-4 px-6 text-center">
                                   <button
                                     onClick={() => deleteBank(bank.id)}
-                                    className="px-3 py-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors text-sm"
+                                    className="p-2 text-red-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 group"
                                     title="Excluir banco"
                                   >
-                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
+                                    <Icons.Delete size={16} className="group-hover:scale-110 transition-transform duration-200" />
                                   </button>
                                 </td>
                               </tr>
@@ -5378,9 +5475,10 @@ const App = () => {
                                 <td className="py-3 px-4 text-center">
                                   <button
                                     onClick={() => handleEdit(row, index)}
-                                    className="px-3 py-1.5 bg-slate-600 text-white rounded-md hover:bg-slate-700 transition-colors text-sm"
+                                    className="p-2 text-slate-600 hover:text-primary-teal hover:bg-primary-teal/10 rounded-lg transition-all duration-200 group"
+                                    title="Editar transação"
                                   >
-                                    Editar
+                                    <Icons.Edit size={16} className="group-hover:scale-110 transition-transform duration-200" />
                                   </button>
                                 </td>
                               </tr>
@@ -5479,7 +5577,7 @@ const App = () => {
                             <th className="text-left py-4 px-6 text-dark-gray font-semibold">Data Emissão</th>
                             <th className="text-left py-4 px-6 text-dark-gray font-semibold">Vencimento</th>
                             <th className="text-left py-4 px-6 text-dark-gray font-semibold">Valor</th>
-                            <th className="text-left py-4 px-6 text-dark-gray font-semibold">Status</th>
+                            <th className="text-center py-4 px-6 text-dark-gray font-semibold">Status</th>
                             <th className="text-center py-4 px-6 text-dark-gray font-semibold">Ações</th>
                           </tr>
                         </thead>
@@ -5512,9 +5610,10 @@ const App = () => {
                                       setCurrentInvoiceIndex(index);
                                       setShowInvoiceModal(true);
                                     }}
-                                    className="px-3 py-1.5 bg-slate-600 text-white rounded-md hover:bg-slate-700 transition-colors text-sm"
+                                    className="p-2 text-slate-600 hover:text-primary-teal hover:bg-primary-teal/10 rounded-lg transition-all duration-200 group mr-2"
+                                    title="Editar fatura"
                                   >
-                                    Editar
+                                    <Icons.Edit size={16} className="group-hover:scale-110 transition-transform duration-200" />
                                   </button>
                                   <button
                                     onClick={() => {
@@ -5524,9 +5623,10 @@ const App = () => {
                                         setInvoices(newInvoices);
                                       }
                                     }}
-                                    className="px-3 py-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors text-sm"
+                                    className="p-2 text-red-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 group"
+                                    title="Excluir fatura"
                                   >
-                                    Excluir
+                                    <Icons.Delete size={16} className="group-hover:scale-110 transition-transform duration-200" />
                                   </button>
                                 </div>
                               </td>
@@ -5671,9 +5771,10 @@ const App = () => {
                                       setCurrentContactIndex(index);
                                       setShowContactModal(true);
                                     }}
-                                    className="px-3 py-1.5 bg-slate-600 text-white rounded-md hover:bg-slate-700 transition-colors text-sm"
+                                    className="p-2 text-slate-600 hover:text-primary-teal hover:bg-primary-teal/10 rounded-lg transition-all duration-200 group mr-2"
+                                    title="Editar contato"
                                   >
-                                    Editar
+                                    <Icons.Edit size={16} className="group-hover:scale-110 transition-transform duration-200" />
                                   </button>
                                   <button
                                     onClick={() => {
@@ -5683,9 +5784,10 @@ const App = () => {
                                         setContacts(newContacts);
                                       }
                                     }}
-                                    className="px-3 py-1.5 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors text-sm"
+                                    className="p-2 text-red-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 group"
+                                    title="Excluir contato"
                                   >
-                                    Excluir
+                                    <Icons.Delete size={16} className="group-hover:scale-110 transition-transform duration-200" />
                                   </button>
                                 </div>
                               </td>
